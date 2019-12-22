@@ -1,0 +1,17 @@
+.box-1{
+  background-color: #C7B063;
+  color: black;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  border: 10px #C7B063 solid;
+  font-family:"Lucida Sans", Verdana, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.containter{
+  max-width:300px;
+  margin:auto;
+  font-family:"Lucida Sans", Verdana, Arial, sans-serif;
+}

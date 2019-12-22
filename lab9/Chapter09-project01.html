@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>Chapter 9</title>
+   <link rel="stylesheet" href="css/styles.css" />
+
+</head>
+<body>
+<form method="get" id="mainForm">
+   <fieldset>
+      <legend>Edit Art Work Details</legend>
+      <table>
+         <tr>
+            <td colspan="2">
+               <p>
+               <label>Title</label><br/>
+               <input type="text" name="title" id="title" class="required hilightable" />
+               </p>
+               <p>
+               <label>Description</label><br/>
+               <input type="text" name="description" id="description" class="required hilightable">
+               </p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p>
+               <label>Genre</label><br/>
+               <select name="genre" class="hilightable" id="genre">
+                  <option>Choose genre</option>
+                  <option>Abstract</option>
+                  <option>Baroque</option>
+                  <option>Gothic</option>
+                  <option>Renaissance</option>
+               </select>
+               </p>
+               <p>
+               <label>Subject</label><br/>
+               <select name="subject" class="hilightable" id="subject">
+                  <option>Choose subject</option>
+                  <option>Animals</option>
+                  <option>Landscape</option>
+                  <option>People</option>
+               </select>
+               </p>
+               <p>
+               <label>Medium</label><br/>
+               <input type="text" name="medium" id="medium" class="hilightable"/>
+               </p>
+               <p>
+               <label>Year</label><br/>
+               <input type="text" name="year" id="year" class="hilightable required"/>
+               </p>
+               <p>
+               <label>Museum</label><br/>
+               <input type="text" name="museum" id="museum" class="hilightable"/>
+               </p>
+            </td>
+            <td>
+               <div class="box">
+                  <label>Type </label><br/>
+                  <input type="radio" name="type" value="1" checked>Painting<br/>
+                  <input type="radio" name="type" value="2">Sculpture<br/>
+               </div>
+               <div class="box">
+                  <label>Image Creative Commons Specification </label><br/>
+                  <input type="checkbox" name="cc" >Attribution <br/>
+                  <input type="checkbox" name="cc" >Noncommercial <br/>
+                  <input type="checkbox" name="cc" >No Derivative Works <br/>
+                  <input type="checkbox" name="cc" >Share Alike
+               </div>
+            </td>
+         </tr>
+
+
+         <tr>
+            <td colspan="2">
+               <div class="rectangle centered">
+                  <input type="submit" class="btn" onclick="addStudent()"> <input type="reset" value="Clear Form" class="btn">
+              </div>
+            </td>
+         </tr>
+      </table>
+   </fieldset>
+</form>
+<script type="text/javascript">
+    var title = document.getElementById("title");
+    var description = document.getElementById("description");
+    var genre = document.getElementById("genre");
+    var subject = document.getElementById("subject");
+    var medium = document.getElementById("medium");
+    var year = document.getElementById("year");
+    var museum = document.getElementById("museum");
+
+    title.addEventListener("blur", function0);
+        function function0() {
+            document.getElementById("title").classList.remove("highlight");
+        }
+    title.addEventListener("focus", function1);
+        function function1() {
+            document.getElementById("title").classList.add("highlight");
+        }
+
+    description.addEventListener("blur", function2);
+        function function2() {
+            document.getElementById("description").classList.remove("highlight");
+        }
+    description.addEventListener("focus", function3);
+        function function3() {
+            document.getElementById("description").classList.add("highlight");
+        }
+
+    genre.addEventListener("blur", function4);
+        function function4() {
+            document.getElementById("genre").classList.remove("highlight");
+        }
+    genre.addEventListener("focus", function5);
+        function function5() {
+            document.getElementById("genre").classList.add("highlight");
+        }
+
+    subject.addEventListener("blur", function6);
+        function function6() {
+            document.getElementById("subject").classList.remove("highlight");
+        }
+    subject.addEventListener("focus", function7);
+        function function7() {
+            document.getElementById("subject").classList.add("highlight");
+        }
+
+    medium.addEventListener("blur", function8);
+        function function8() {
+            document.getElementById("medium").classList.remove("highlight");
+        }
+    medium.addEventListener("focus", function9);
+        function function9() {
+            document.getElementById("medium").classList.add("highlight");
+        }
+    year.addEventListener("blur", function10);
+        function function10() {
+            document.getElementById("year").classList.remove("highlight");
+        }
+    year.addEventListener("focus", function11);
+        function function11() {
+            document.getElementById("year").classList.add("highlight");
+        }
+
+    museum.addEventListener("blur", function12);
+        function function12() {
+            document.getElementById("museum").classList.remove("highlight");
+        }
+    museum.addEventListener("focus", function13);
+        function function13() {
+            document.getElementById("museum").classList.add("highlight");
+        }
+
+    document.getElementById("mainForm").addEventListener("submit",
+        function(e){
+        var str1 = document.getElementById("title").value;
+        var str2 = document.getElementById("description").value;
+        var str3 = document.getElementById("year").value;
+        if(str1 == ""){
+            e.preventDefault();
+            document.getElementById("title").classList.add("error");
+        } else {
+            document.getElementById("title").classList.remove("error");
+        }
+
+        if(str2 == ""){
+            e.preventDefault();
+            document.getElementById("description").classList.add("error");
+        }else {
+            document.getElementById("description").classList.remove("error");
+        }
+
+        if(str3 == ""){
+            e.preventDefault();
+            document.getElementById("year").classList.add("error");
+        } else {
+            document.getElementById("year").classList.remove("error");
+        }
+    });
+
+</script>
+</body>
+</html>

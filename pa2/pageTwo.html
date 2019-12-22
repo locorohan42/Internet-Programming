@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Two Forum</title>
+    <link rel="stylesheet" href="pa2.css" />
+  </head>
+  <body>
+    <nav>
+      <table>
+        <tr>
+          <td class="spin">
+            <a href="pageTwo.html" class="fontStyle"> My Account</a>
+            <a href="#" class="fontStyle">Wish List</a>
+            <a href="#" class="fontStyle">Shopping Cart</a>
+            <a href="#" class="fontStyle">Checkout</a>
+          </td>
+        </tr>
+      </table>
+
+    </nav>
+    <header>
+
+      <h1>Art Store</h1>
+
+    </header>
+    <table class="boxStyle">
+      <tr>
+        <td>
+          <a href="pageOne.html" class="fontStyle">Home</a>
+          <a href="#" class="fontStyle">About Us </a>
+          <a href="#" class="fontStyle">Art Works</a>
+          <a href="#" class="fontStyle">Artists</a> <br>
+          </td>
+      </tr>
+    </table><br>
+    <table>
+    <tr>
+      <td>
+        <h2>Customer Registration</h2>
+      </td>
+    </tr>
+  </table>
+
+
+  <form method="post" action="http://www.randyconnolly.com/tests/process.php">
+    <table>
+      <tr>
+        <td class="barrier">1. User Info <br></td>
+      </tr>
+      </table>
+<table>
+
+
+      <tr>
+        <td >
+          <label>First Name</label><br/>
+          <textarea name="first"  class="textwidth" ></textarea><br>
+        </td>
+        <td>
+          <label>Last Name</label><br/>
+          <textarea name="last" class="textwidth" ></textarea><br>
+        </td>
+      </tr>
+      <tr>
+        <td >
+          <label>Email</label><br>
+          <input type="email" name="email" value="" placeholder="format for email is xxx@yyy.zzz" class="emailwidth"><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Password</label><br>
+          <input type="password" name="pass1"  placeholder="at least 8 characters" class="textwidth">
+        </td>
+        <td>
+          <label>Password Repeat</label><br>
+          <input type="password" name="pass2"  placeholder="at least 8 characters" class="textwidth"><br>
+        </td>
+      </tr>
+
+
+</table>
+<table>
+  <tr>
+    <td class="barrier">
+      2. Location
+    </td>
+  </tr>
+</table>
+
+<table>
+
+      <tr>
+        <td>
+          <label>Address</label><br>
+          <textarea name="address" class="addressWidth"></textarea><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>City</label><br>
+          <textarea name="city" class="textwidth"></textarea><br>
+        </td>
+        <td>
+          <label>State</label><br>
+          <textarea name="state" class="stateWidth"></textarea><br>
+        </td>
+        <td>
+          <label>Zip</label><br>
+          <textarea name="zip" class="zipWidth"></textarea><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Phone</label><br>
+          <input type="tel" name="phone" placeholder="NNN-NNN-NNNN" class="textwidth">
+        </td>
+        <td>
+          <label>Country</label> <br>
+          <select class="zipWidth" name="country">
+            <option value="" disabled selected>Choose country</option>
+            <option value="America">America</option>
+            <option value="Canada">Canada</option>
+            <option value="North Korea">North Korea</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Continent</label><br>
+          <input type="radio" name="continent" value="1">North America <br>
+          <input type="radio" name="continent" value="2">Europe <br>
+          <input type="radio" name="continent" value="3">South America <br>
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td class="barrier">
+          3. Personal Details
+        </td>
+      </tr>
+    </table>
+
+
+    <table>
+
+      <tr>
+        <td>
+          <label>Birth Day</label><br>
+          <input type="date" name="birthday" value="" class="birthWidth">
+        </td>
+        <td>
+          <label>Favorite Color</label><br>
+          <input name="favorite" type="color" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Interest In Art</label><br>
+          <label>Minimal</label>
+          <input type="range" name="interest" min="0" max="10">
+          <label>Love it</label>
+        </td>
+      </tr>
+</table>
+
+<table>
+      <tr>
+        <td class="barrier">
+          4. All Done
+        </td>
+      </tr>
+  </table>
+  <table>
+      <tr>
+        <td>
+          <input type="checkbox" name="accept" value="on">
+          <label>I agree to the </label> <a href="#">Terms of the Site</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="image" src="button_ok.png" alt="Submit"/>
+          <label>Sign me up!</label> <br>
+        </td>
+      </tr>
+    </table> <br>
+
+    <table>
+      <tr>
+        <td class="spin2">
+          All images are Copyright to their owners. This is just a hypothetical
+          site @ 2014 Copyright Art Store
+        </td>
+      </tr>
+    </table>
+  </form>
+  </body>
+</html>

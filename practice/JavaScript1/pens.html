@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <script type="text/javascript">
+            function init(){
+                var imgS = document.getElementById("image");
+                imgS.addEventListener("click", print);
+            }
+            function print(){
+                var num = document.getElementsByName("age");
+                document.getElementById("output").innerHTML = num[0].value;
+            }
+            window.addEventListener("load", function{
+                init();
+            })
+        </script>
+        </head>
+        <form>
+            <input type="number" name="age">
+            <img id = "image" src = "#" alt="submit button">
+        </form>
+
+
+        <p id = "output" >number Entered is: </p>
+        <meta charset="utf-8">
+        <title></title>
+
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Make drop down box and only external CSS -->
+  <head>
+    <meta charset="utf-8">
+    <title>Chapter 5</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="chapter05-project03.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Share Your Travels</h1>
+      <p>let us know where you've been</p>
+    </header>
+    <main>
+      <section>
+        <form method="post" action="http://www.randyconnolly.com/tests/process.php">
+          <fieldset>
+            <legend>Photo Details</legend>
+            <table>
+              <tr>
+                <td colspan="2">
+                  <p>
+                    <label>Title</label><br />
+                    <input type="text" name="title" placeholder="Give your photo a descriptive name" />
+                  </p>
+                  <p>
+                    <label>Description</label><br />
+                    <textarea name="description" rows="5" cols="61" placeholder="Adding a rich description will help with search results"></textarea>
+                  </p>
+                  <p>
+                </tr>
+                <tr>
+                  <td>
+
+                  <p>
+                  <label>Continent</label> <br>
+                  <select class="" name="Continent">
+                    <option value="" disabled selected>Choose continent</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Austrailia">Austrailia</option>
+                    <option value="Antartica">Antartica</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                  </select>
+                  </p>
+                  <br>
+                  <label>Country</label> <br>
+                  <select class="" name="Country">
+                    <option value="" disabled selected>Choose country</option>
+                    <option value="America">America</option>
+                    <option value="Canada">Canada</option>
+                    <option value="China">China</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Turkey">Turkey</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Thailand">Thailand</option>
+                  </select>
+                  <br>
+                  <br>
+                  <label>City</label> <br>
+                  <div class="lookingOK">
+                  <textarea name="City" rows="1" cols="30" ></textarea>
+                </div>
+                    </td>
+                    <td>
+                      <div class="lookingGood">
+
+                      <label>Copyright</label> <br>
+                      <input type="radio" name="Copyright" value="1">All Rights Reserved <br>
+                      <input type="radio" name="Copyright" value="2">Creative Commons <br>
+                    </div>
+                    <br>
+
+
+                      <div class="lookingGood1">
+                        <label>Creative Commons Types</label> <br>
+                        <input type="checkbox" name="cc[]" value="1">Attribution <br>
+                        <input type="checkbox" name="cc[]" value="2">Noncommercial <br>
+                        <input type="checkbox" name="cc[]" value="3">No derivitave works <br>
+                      </div>
+                    </td>
+                </tr>
+
+
+                    <tr>
+                      <td colspan="2">
+                      <div class="lookingFresh">
+                        <label>I accept the software license</label>
+                        <input type="checkbox" name="accept" value="on" checked="checked">
+                      </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <label>Rate this photo: </label><br>
+                        <input type="number" min="1" max="10" name="rate" >
+                      </td>
+
+                      <td rowspan="2">
+                      <div class="lookingGood2">
+                        <label>Date Taken:</label><br>
+                        <input type="date" name="Date" value="">
+                        <br>
+                          <label>Time Taken:</label><br>
+                          <input type="time" name="Time" value="">
+
+                      </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <label>Color Collection: </label><br>
+                        <input name="Color" type="color" />
+                      </td>
+                    </tr>
+
+              <tr>
+                <td colspan="2">
+                  <div class="rectangle">
+                    <input type="submit" class="rounded"> <input type="reset" value="Clear Form" class="rounded">
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+
+  </body>
+
+</html>

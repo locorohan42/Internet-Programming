@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Calendar and Form</title>
+    <link rel="stylesheet" href="lab5.css">
+    <style>
+      table, th, td{
+        width: 100%;
+        table-layout:fixed;
+        text-align: center;
+        font-size: 15px;
+        border:1px white;
+        outline: 1px solid black;
+        margin: auto;
+
+      }
+      tr, th, td{
+        padding:10px;
+        border:1px black;
+      }
+      th{
+        background:#e6e6e6;
+        color: #6b6b6b;
+        border:1px black;
+        font-size: 10px;
+        padding: 7px;
+        font-weight: bold;
+      }
+      td{
+        background: #e6e6e6;
+        color: #6b6b6b;
+        font-weight: bold;
+
+      }
+      td:hover{
+        background: #0099cc;
+        color:white;
+      }
+      caption{
+        text-align:center;
+        background:#78a178;
+        font-size:1.2em;
+        letter-spacing:1px;
+        color:black;
+        padding:10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class = "containter">
+        <table>
+
+          <caption><strong>October 2019</strong></caption>
+          <tr>
+            <th>S</th>
+            <th>M</th>
+            <th>T</th>
+            <th>W</th>
+            <th>T</th>
+            <th>F</th>
+            <th>S</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td><u>6</u></td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td><u>13</u></td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td><u>20</u></td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+          </tr>
+          <tr>
+            <td><u>27</u></td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><u>Sep</u></td>
+            <td><u></u></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><u></u></td>
+            <td><u>Nov</u></td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <br>
+
+
+    <div class ="box-1">
+    <form method = "get" action ="https://www.randyconnolly.com/tests/process.php">
+      <fieldset>
+        <legend>Meeting Details</legend>
+        <p>
+          <label>Client Name: </label>
+          <input type="text" name="Enter Name" value="">
+        </p>
+        <p>
+          <label>First Meeting? </label>
+          <input type="checkbox" name = "First Time?" value = "Yes" >
+        </p>
+          <label>Client Type: </label>
+          <input type="radio" name="Education" value="School">School
+          <input type="radio" name="Education" value="College">College
+          <input type="radio" name="Education" value="University">University
+        <p>
+          <label>Meeting Date: </label>
+          <input type="date" name="Time" value="">
+        </p>
+        <p>
+          <input type="submit" name="Submit" value="Submit">
+        </p>
+      </fieldset>
+    </form>
+    </div>
+  </body>
+</html>

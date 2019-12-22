@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>College Website</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="registrationForm.js" type="text/JavaScript"></script>
+    </head>
+    <body>
+
+        <table>
+          <tr>
+            <td class="spin">
+             Mankato State University
+            </td>
+          </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="sidenav">
+                    <a href="./index.html" class="fontStyle">Home</a>
+                    <a href="./registrationForm.html" class="fontStyle">Register Student</a>
+                    <a href="./allStudent.html" class="fontStyle">All Students</a>
+                    <a href="./search.html" class="fontStyle">Look up Student</a>
+                </td>
+            </tr>
+        </table>
+        <table>
+
+
+            <tr>
+                <td><h2>Registration Form</h2></td>
+            </tr>
+            <tr>
+                <td><label>First Name:</label>
+                     <input type="text" id="firstname" name="First Name" class="TextWidth" placeholder="First name" required>
+                    (First Name)<br>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Last Name:</label>
+                    <input type="text" id="lastname" name="Last Name" class="TextWidth" placeholder="Last name" required>
+                    (Last Name)<br>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Address:</label>
+                    <input type="text" id="address" name="Address" class="TextWidth" placeholder="Address" required />
+                    (Address)<br>
+                </td>
+            </tr>
+            <tr>
+                <td><label>City:</label>
+                    <input type="text" id="city" name="City" placeholder="City" class="TextWidth" required />
+                    <br>
+                </td>
+                <td class="StateWidth"><label>State:</label>
+                    <input type="text" id="state" name="State" class="TextWidth" placeholder="State" required />
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td><label>ZipCode:</label>
+                    <input type="text" id="zip" name="ZipCode" placeholder="ZipCode" class="TextWidth" required/>
+                    <br>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Email:</label>
+                    <input type="text" id="email" name="Email" placeholder="name@domain.com" class="TextWidth" required/>
+                    (name@domain.com)<br>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Phone:</label>
+                    <input type="text" id="phone" name="Phone" placeholder="111-111-1111" class="TextWidth" required/>
+                    (XXX-XXX-XXXX)<br>
+                </td>
+            </tr>
+
+
+            <tr>
+              <td colspan="2">
+                <div class="rectangle">
+                <button type="submit" class="btn btn-default" onclick="addStudent()">Add</button>
+                <button type="reset" value="Reset">Clear</button>
+                </div>
+              </td>
+            </tr>
+
+
+        </table>
+
+        <table>
+          <tr>
+            <td class="spin2">
+             CSCI 2005
+            </td>
+          </tr>
+        </table>
+
+    </body>
+</html>

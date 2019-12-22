@@ -1,0 +1,204 @@
+    <!-- // $(document).ready(function(){
+    //
+    //     var select = $('#geochart');
+    //
+    //     select.append('<tr>');
+    //     select.append("<td>Id</td>")
+    //     select.append("<td>Date</td>")
+    //     select.append("<td>Country</td>")
+    //     select.append("<td>Browser</td>")
+    //     select.append("<td>OS</td>")
+    //     //Id 	Date 	Country 	Browser 	OS
+    //     chart.append('</tr>');
+    //
+    // }); -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Chapter 10</title>
+<!-- jQuery import -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/styles.css">
+
+<script>
+// Img1
+$(document).ready(function(){
+  $("#flowers").click(function(){
+    $('#imgManipulated').children('img').attr('src','images/medium/painting1.jpg');
+    $('#imgManipulated').children('figcaption').text($("#flowers").attr("alt"));
+    $('#imgManipulated').children('figcaption').append("<br>");
+    $('#imgManipulated').children('figcaption').append($("#flowers").attr("title"));
+
+
+  });
+});
+// Img2
+$(document).ready(function(){
+  $("#Alida").click(function(){
+    $('#imgManipulated').children('img').attr('src','images/medium/painting2.jpg');
+    $('#imgManipulated').children('figcaption').text($("#Alida").attr("alt"));
+    $('#imgManipulated').children('figcaption').append("<br>");
+    $('#imgManipulated').children('figcaption').append($("#Alida").attr("title"));
+
+  });
+});
+// Img3
+$(document).ready(function(){
+  $("#vanGogh").click(function(){
+    $('#imgManipulated').children('img').attr('src','images/medium/painting3.jpg');
+    $('#imgManipulated').children('figcaption').text($("#vanGogh").attr("alt"));
+    $('#imgManipulated').children('figcaption').append("<br>");
+    $('#imgManipulated').children('figcaption').append($("#vanGogh").attr("title"));
+
+  });
+});
+// Img4
+$(document).ready(function(){
+  $("#WilliamII").click(function(){
+    $('#imgManipulated').children('img').attr('src','images/medium/painting4.jpg');
+    $('#imgManipulated').children('figcaption').text($("#WilliamII").attr("alt"));
+    $('#imgManipulated').children('figcaption').append("<br>");
+    $('#imgManipulated').children('figcaption').append($("#WilliamII").attr("title"));
+
+  });
+});
+// Img5
+$(document).ready(function(){
+  $("#JohannesVermeer").click(function(){
+    $('#imgManipulated').children('img').attr('src','images/medium/painting5.jpg');
+    $('#imgManipulated').children('figcaption').text($("#JohannesVermeer").attr("alt"));
+    $('#imgManipulated').children('figcaption').append("<br>");
+    $('#imgManipulated').children('figcaption').append($("#JohannesVermeer").attr("title"));
+
+
+  });
+});
+//For blur filters
+$(document).ready(function(){
+$("#sliderBlur").click(function(){
+var BlurFilterVal = $('#sliderBlur').val()
+var val1 =  'blur(' + BlurFilterVal + 'px)'
+ $('#imgManipulated').children('img')
+ .css({
+    'filter'         : val1,
+    '-webkit-filter' : val1
+    });
+ });
+});
+
+//For Grayscale filters
+$(document).ready(function(){
+$("#sliderGray").click(function(){
+var GrayFilterVal = $('#sliderGray').val()
+var val2 =  'grayscale(' + GrayFilterVal + '%)'
+ $('#imgManipulated').children('img')
+ .css({
+    'filter'         : val2,
+    '-webkit-filter' : val2
+    });
+ });
+});
+
+//Hue Rotate
+$(document).ready(function(){
+$("#sliderHue").click(function(){
+var HueFilterVal = $('#sliderHue').val()
+var val3 =  'hue-rotate(' + HueFilterVal + 'deg)'
+ $('#imgManipulated').children('img')
+ .css({
+    'filter'         : val3,
+    '-webkit-filter' : val3
+    });
+ });
+});
+
+//Brightness
+$(document).ready(function(){
+$("#sliderBrightness").click(function(){
+var BrightFilterVal = $('#sliderBrightness').val()
+var val4 =  'brightness(' + BrightFilterVal + '%)'
+ $('#imgManipulated').children('img')
+ .css({
+    'filter'         : val4,
+    '-webkit-filter' : val4
+    });
+ });
+});
+
+//Saturation
+$(document).ready(function(){
+$("#sliderSaturation").click(function(){
+var SatFilterVal = $('#sliderSaturation').val()
+var val5 =  'saturate(' + SatFilterVal + ''
+ $('#imgManipulated').children('img')
+ .css({
+    'filter'         : val5,
+    '-webkit-filter' : val5
+    });
+ });
+});
+
+//opacity
+$(document).ready(function(){
+$("#sliderOpacity").click(function(){
+var OpacityFilterVal = $('#sliderOpacity').val()
+var val6 =  'opacity(' + OpacityFilterVal + '%)'
+ $('#imgManipulated').children('img')
+ .css({
+    'filter'         : val6,
+    '-webkit-filter' : val6
+    });
+ });
+});
+
+//reset button
+$(document).ready(function(){
+$('#resetFilters').click(function(){
+ $('#imgManipulated').children('img')
+ .css({
+    'filter'         : 'opacity(100%) brightness(100%) saturate(0) hue-rotate(0deg) grayscale(0%) blur(0px)'  ,
+    '-webkit-filter' : 'opacity(100%) brightness(100%) saturate(0) hue-rotate(0deg) grayscale(0%) blur(0px)'
+    });
+ });
+});
+</script>
+</head>
+<body class="tiled">
+<header>
+    <h1>Art Filters</h1>
+</header>
+<main>
+    <div id="sliderBox">
+        <form>
+           <label>Opacity: </label><p><input type="range" id="sliderOpacity" min="0" max="100" value="100" class="sliders" /> <span id="numOpacity">100</span>%</p>
+           <p><label>Saturation: </label><input type="range" id="sliderSaturation" min="1" max="300" value="100" class="sliders"/> <span id="numSaturation">100</span>%</p>
+           <p><label>Brightness: </label><input type="range" id="sliderBrightness" min="0" max="300" value="100" class="sliders" /> <span id="numBrightness">100</span>%</p>
+           <p><label>Hue Rotate: </label><input type="range" id="sliderHue" min="0" max="360" value="0" class="sliders" /> <span id="numHue">0</span>deg</p>
+           <p><label>Grayscale: </label><input type="range" id="sliderGray" min="0" max="100" value="0" class="sliders"/> <span id="numGray">0</span>%</p>
+           <p><label>Blur: </label><input type="range" id="sliderBlur" min="0" max="10" value="0" class="sliders" /> <span id="numBlur">0</span>px</p>
+           <p><button id="resetFilters">Reset</button> </p>
+        </form>
+    </div>
+    <figure id="imgManipulated">
+        <img src="images/medium/painting1.jpg" >
+        <figcaption>
+            <em>Still Life with Flowers in a Glass Vase</em> <br>
+            Jan Davidsz. de Heem, 1650 - 1683
+        </figcaption>
+    </figure>
+    <div id="thumbBox">
+        <div><img id="flowers" src="images/small/painting1.jpg"  alt="Still Life with Flowers in a Glass Vase" title="Jan Davidsz. de Heem, 1650 - 1683"/></div>
+        <div><img id="Alida" src="images/small/painting2.jpg"  alt="Portrait of Alida Christina Assink" title="Jan Adam Kruseman, 1833"/></div>
+        <div><img id="vanGogh" src="images/small/painting3.jpg"  alt="Self-portrait" title="Vincent van Gogh, 1887"/></div>
+        <div><img id="WilliamII" src="images/small/painting4.jpg"  alt="William II, Prince of Orange, and his Bride, Mary Stuart" title="Anthony van Dyck, 1641"/></div>
+        <div><img id="JohannesVermeer" src="images/small/painting5.jpg"  alt="Milkmaid" title="Johannes Vermeer, c. 1660"/></div>
+    </div>
+
+</main>
+
+</body>
+</html>

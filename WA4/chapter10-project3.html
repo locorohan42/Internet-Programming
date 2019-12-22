@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Chapter 12</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script src="js/project3.js"></script>
+<script>
+//Draw countries map
+    google.charts.load('current', {
+            'packages':['geochart'],
+            'mapsApiKey': 'AIzaSyAq924nwQhp6lrC8GSyVeOI7lAnKFCYbSc'
+          });
+          google.charts.setOnLoadCallback(drawRegionsMap);
+
+          function drawRegionsMap() {
+            var data = google.visualization.arrayToDataTable([
+              ['Country', 'Visits'],
+              ['Russia', 20],
+              ['Czech Republic', 3],
+              ['France', 16],
+              ['Poland', 6],
+              ['Kosovo', 1],
+              ['Bosnia and herzegovina', 1],
+              ['Sweeden', 11],
+              ['United Kingdom', 1],
+              ['Portugal', 10],
+              ['Ireland', 11],
+              ['Greece', 6],
+              ['Ukraine', 7],
+              ['Cyprus', 1],
+              ['Finland', 5],
+              ['Bulgaria', 2],
+              ['Macedonia', 3],
+              ['San Marino', 1],
+              ['Serbia', 1],
+              ['Slovenia', 1],
+              ['Estonia', 1],
+            ]);
+
+            var options = {};
+            var chart = new google.visualization.GeoChart(document.getElementById('geochart'));
+            chart.draw(data, options);
+          }
+
+//Draw the chart
+    google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+              ['Browser', 'Visits'],
+              ['Chrome',     42],
+              ['Firefox',      14],
+              ['Internet Explorer',  8],
+              ['Edge', 7],
+              ['Safari',    18],
+              ['Mobile Chrome',  14],
+              ['Mobile Safari', 12],
+              ['Unknown',    8]
+              //Suprised no visits for Opera
+            ]);
+
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data);
+          }
+
+    //Draw the column chart
+    google.charts.load("current", {packages:['corechart']});
+        google.charts.setOnLoadCallback(drawThis);
+        function drawThis() {
+          var data = google.visualization.arrayToDataTable([
+            ["OS", "Popularity", { role: "style" } ],
+            ["Unknown", 19, "color:#3333cc"],
+            ["Windows 7", 9, "color:#3333cc"],
+            ["Windows 8", 15, "color:#3333cc"],
+            ["Windows 10", 18, "color:#3333cc"],
+            ["Mac 10.11", 12, "color:#3333cc"],
+            ["Mac 10.10", 1, "color:#3333cc"],
+            ["GNU/Linux", 1, "color:#3333cc"],
+            ["iOS 9.2", 11, "color:#3333cc"],
+            ["Android 5.1", 4, "color:#3333cc"],
+            ["Android 4.0", 2, "color:#3333cc"],
+            ["Windows Vista", 1, "color:#3333cc"],
+            ["Android 6.0", 4, "color:#3333cc"],
+            ["iOS 8", 3, "color:#3333cc"],
+            //["iOS 7", 0, "color:#3333cc"], not found
+            //["Mac 10.9", 0, "color:#3333cc"], not found
+            //["Ubuntu", 0, "color:#3333cc"], not found
+          ]);
+
+          var view = new google.visualization.DataView(data);
+
+
+          var options = {
+            title: "",
+            width: 200,
+            height: 400,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+          };
+          var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
+          chart.draw(view, options);
+      }
+
+
+
+    //Populate the visits table
+
+        var url = 'http://www.randyconnolly.com/funwebdev/services/visits/visits.php?continent=EU&month=1&limit=100';
+        $.get(url, function (data, status) {
+            if (status == "success") {
+                var select = $('#visitsBody');
+                for (var i = 0; i < data.length; i++) {
+                    var opt = '<tr>'+'<td>' + data[i].id + '</td>' + '<td>' + data[i].visit_date.slice(0,10) + '</td>'
+                    + '<td>' + data[i].country + '</td>'+ '<td>' + data[i].browser + '</td>'
+                    + '<td>' + data[i].operatingSystem + '</td>'+'</tr>';
+                    select.append(opt);
+                }
+            }
+
+    $(document).ready(function(){
+        var url = 'https://www.randyconnolly.com/funwebdev/services/visits/browsers.php';
+        $.get(url, function (data, status) {
+            if (status == "success") {
+                var select = $('#filterBrowser');
+                for (var i = 0; i < data.length; i++) {
+                    var opt = '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    select.append(opt);
+                }
+            }
+        });
+    });
+
+    //Populate the os list
+    $(document).ready(function(){
+        var url = 'https://www.randyconnolly.com/funwebdev/services/visits/os.php';
+        $.get(url, function (data, status) {
+            if (status == "success") {
+                var select = $('#filterOS');
+                for (var i = 0; i < data.length; i++) {
+                    var opt = '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    select.append(opt);
+                }
+            }
+        });
+    });
+
+    //Populate the countries list
+    $(document).ready(function(){
+        var url = 'http://www.randyconnolly.com/funwebdev/services/visits/countries.php?continent=EU';
+        $.get(url, function (data, status) {
+            if (status == "success") {
+                var select = $('#filterCountry');
+                for (var i = 0; i < data.length; i++) {
+                    var opt = '<option value="' + data[i].id + '">' + data[i].name + '</option>';
+                    select.append(opt);
+                }
+            }
+        });
+    });
+
+
+    // Browser filter
+    $(document).ready(function(){
+    $("#filterBrowser").change(function () {
+        var userBrowserSelction = $("#filterBrowser option:selected").text();
+
+        var filteredArray;
+
+        filteredArray = $.grep(data, function (e) {
+            return (e.browser.indexOf(userBrowserSelction) == 0);
+        });
+
+
+        $("#visitsBody tr").remove();
+
+        var select = $('#visitsBody');
+        for (var i = 0; i < data.length; i++) {
+            var opt = "<tr><td>" + filteredArray[i].id + "</td><td>" + filteredArray[i].visit_date + "</td><td>" + filteredArray[i].country + "</td><td>"
+                + filteredArray[i].browser + "</td><td>" + filteredArray[i].operatingSystem + "</td><td>";
+            select.append(opt);
+        }
+    });
+    });
+
+    // Country filter
+    $(document).ready(function(){
+    $("#filterCountry").change(function () {
+        var userSelction = $("#filterCountry option:selected").text();
+
+        var filteredArray;
+        filteredArray = $.grep(data, function (e) {
+                        return (e.country.indexOf(userSelction) == 0);
+        });
+
+        $("#visitsBody tr").remove();
+
+        var select = $('#visitsBody');
+        for (var i = 0; i < data.length; i++) {
+            var opt = "<tr><td>" + filteredArray[i].id + "</td><td>" + filteredArray[i].visit_date + "</td><td>" + filteredArray[i].country + "</td><td>"
+                + filteredArray[i].browser + "</td><td>" + filteredArray[i].operatingSystem + "</td><td>";
+            select.append(opt);
+        }
+    });
+    });
+
+    // OS filter
+    $(document).ready(function(){
+    $("#filterOS").change(function () {
+        var userOsSelction = $("#filterOS option:selected").text();
+
+        var filteredArray;
+        filteredArray = $.grep(data, function (e) {
+            return (e.operatingSystem.indexOf(userOsSelction) == 0);
+        });
+
+
+        $("#visitsBody tr").remove();
+
+
+        var select = $('#visitsBody');
+        for (var i = 0; i < data.length; i++) {
+            var opt = "<tr><td>" + filteredArray[i].id + "</td><td>" + filteredArray[i].visit_date + "</td><td>" + filteredArray[i].country + "</td><td>"
+                + filteredArray[i].browser + "</td><td>" + filteredArray[i].operatingSystem + "</td><td>";
+            select.append(opt);
+        }
+
+    });
+    });
+    });
+
+
+
+</script>
+</head>
+
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+         <h1 class="mdl-layout-title"><span>CRM</span> Admin</h1>
+
+
+
+          <div class="mdl-layout-spacer"></div>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                      mdl-textfield--floating-label mdl-textfield--align-right">
+
+            <label id="tt2" class="material-icons mdl-badge mdl-badge--overlap" data-badge="5">account_box</label>
+            <div class="mdl-tooltip" >Messages</div>
+
+            <label id="tt3" class="material-icons mdl-badge mdl-badge--overlap" data-badge="4">notifications</label>
+             <div class="mdl-tooltip" >Notifications</div>
+
+            <label class="mdl-button mdl-js-button mdl-button--icon"
+                   for="fixed-header-drawer-exp">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" name="sample"
+                     id="fixed-header-drawer-exp">
+            </div>
+
+          </div>
+        </div>
+    </header>
+
+    <div class="mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
+        <div class="profile">
+           <img src="images/profile.jpg" alt="Image" class="avatar">
+           <h4>John Locke</h4>
+           <span>johnlocke@example.com</span>
+        </div>
+
+        <nav class="mdl-navigation mdl-color-text--blue-grey-300">
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">dashboard</i> Dashboard</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">message</i> Messages</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">event</i> Tasks</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">call</i> Orders</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">settings</i> Configure</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">view_list</i> Catalog</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">contacts</i> Customers</a>
+            <a class="mdl-navigation__link mdl-color-text--blue-grey-300" href=""><i class="material-icons" role="presentation">insert_chart</i> Analytics</a>
+        </nav>
+    </div>
+
+
+    <main class="mdl-layout__content mdl-color--grey-50">
+        <section class="page-content">
+
+            <div class="mdl-grid">
+
+              <!-- mdl-cell + mdl-card -->
+              <div class="mdl-cell mdl-cell--7-col card-lesson mdl-card  mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-color--orange">
+                  <h2 class="mdl-card__title-text">Visits [January]</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+
+                    <div class="filters mdl-shadow--2dp">
+                        Filter
+                        <select id="filterCountry">
+                            <option value="0">All Countries</option>
+                        </select>
+                        <select id="filterBrowser">
+                            <option value="0">All Browsers</option>
+                        </select>
+                        <select id="filterOS">
+                            <option value="0">All Operating System</option>
+                        </select>
+                    </div>
+
+
+
+                    <table class="mdl-data-table  ">
+                      <thead>
+                        <tr>
+                          <th >Id</th>
+                          <th class="mdl-data-table__cell--non-numeric">Date</th>
+                          <th class="mdl-data-table__cell--non-numeric">Country</th>
+                          <th class="mdl-data-table__cell--non-numeric">Browser</th>
+                          <th class="mdl-data-table__cell--non-numeric">OS</th>
+                        </tr>
+                      </thead>
+                      <tbody id="visitsBody">
+
+
+                      </tbody>
+                    </table>
+                </div>
+              </div>  <!-- / mdl-cell + mdl-card -->
+
+
+            <div class="mdl-grid mdl-cell--5-col"  >
+
+
+
+                  <!-- mdl-cell + mdl-card -->
+                  <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp" >
+                    <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
+                      <h2 class="mdl-card__title-text">Map</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div id="geochart" > </div>
+
+                    </div>
+                  </div>  <!-- / mdl-cell + mdl-card -->
+
+                  <!-- mdl-cell + mdl-card -->
+                  <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
+                      <h2 class="mdl-card__title-text">Browsers</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                          <div id="piechart" style="width: 752px; height: 500px;"></div>
+
+                    </div>
+                  </div>  <!-- / mdl-cell + mdl-card -->
+
+
+                  <!-- mdl-cell + mdl-card -->
+                  <div class="mdl-cell mdl-cell--12-col card-lesson mdl-card  mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-color--deep-purple mdl-color-text--white">
+                      <h2 class="mdl-card__title-text">Operating Systems</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                          <div id="columnchart" style="width: 800px; height: 500px;"></div>
+
+                    </div>
+                  </div>  <!-- / mdl-cell + mdl-card -->
+
+
+            </div>
+
+
+            </div>  <!-- / mdl-grid -->
+
+        </section>
+
+    </main>
+</div>    <!-- / mdl-layout -->
+
+</body>
+</html>
